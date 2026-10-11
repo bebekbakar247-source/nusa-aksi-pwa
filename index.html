@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#151923" />
+  <meta name="description" content="NUSA-AKSI — ruang partisipasi sipil offline-first yang mengutamakan martabat, privasi, dan tindakan konstruktif." />
+  <meta name="color-scheme" content="dark" />
+  <title>NUSA-AKSI — Bale Suara Rakyat</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+  <!-- =========================================================
+       VIEW 1 — LOCAL IDENTITY VERIFICATION / LANDING
+       ========================================================= -->
+  <main id="auth-view" class="auth-layout">
+    <header class="auth-topbar">
+      <a class="brand-lockup" href="#home" aria-label="NUSA-AKSI beranda">
+        <span class="brand-mark" aria-hidden="true">
+          <i class="fa-solid fa-sun"></i>
+        </span>
+        <span class="brand-wordmark">
+          <strong>NUSA<span>-AKSI</span></strong>
+          <small>SUARA DARI AKAR RUMPUT</small>
+        </span>
+      </a>
+
+      <div class="auth-top-meta">
+        <span class="status-dot status-dot-amber"></span>
+        <span>PROTOTIPE PRIVASI LOKAL</span>
+      </div>
+    </header>
+
+    <section class="hero-auth" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          <span>TEKNOLOGI SIPIL · NUSA TENGGARA TIMUR</span>
+        </div>
+
+        <h1 id="hero-title">
+          Emansipasi Suara,<br />
+          <span class="text-gradient">Tanpa Jeda Sinyal,</span><br />
+          Tanpa Jejak Identitas.
+        </h1>
+
+        <p class="hero-description">
+          Sebuah bale digital untuk menyampaikan persoalan nyata, mencatat
+          bukti secara lokal, dan mengubah keluhan menjadi usulan yang
+          dapat ditindaklanjuti — bahkan ketika jaringan terputus.
+        </p>
+
+        <div class="hero-attributes">
+          <div class="hero-attribute">
+            <span class="attribute-icon"><i class="fa-solid fa-wifi"></i></span>
+            <span>
+              <strong>Offline-first</strong>
+              <small>Tetap bekerja tanpa sinyal</small>
+            </span>
+          </div>
+
+          <div class="hero-attribute">
+            <span class="attribute-icon"><i class="fa-solid fa-fingerprint"></i></span>
+            <span>
+              <strong>Privasi lokal</strong>
+              <small>NIK tidak dikirim oleh prototipe</small>
+            </span>
+          </div>
+
+          <div class="hero-attribute">
+            <span class="attribute-icon"><i class="fa-solid fa-handshake-angle"></i></span>
+            <span>
+              <strong>Aksi konstruktif</strong>
+              <small>Fokus pada solusi bersama</small>
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-cultural-note">
+          <div class="ikat-symbol" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p>
+            Terinspirasi dari semangat <em>bale</em>, gotong royong, dan
+            kekayaan motif tenun Nusa Tenggara Timur.
+          </p>
+        </div>
+      </div>
+
+      <section class="auth-card glass-panel" aria-labelledby="auth-card-title">
+        <div class="card-topline">
+          <span class="card-kicker">GERBANG PARTISIPASI</span>
+          <span class="step-counter"><span>01</span> / 02</span>
+        </div>
+
+        <div class="auth-card-icon">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        </div>
+
+        <h2 id="auth-card-title">Verifikasi lokal</h2>
+        <p class="muted-text">
+          Masukkan NIK untuk menjalankan simulasi pembuktian pada perangkat ini.
+          Nilai NIK tidak dikirim ke server.
+        </p>
+
+        <form id="identity-form" novalidate>
+          <label for="nik-input" class="field-label">
+            Nomor Induk Kependudukan (NIK)
+          </label>
+
+          <div class="input-with-icon">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            <input
+              id="nik-input"
+              name="nik"
+              type="password"
+              inputmode="numeric"
+              autocomplete="off"
+              pattern="[0-9]{16}"
+              minlength="16"
+              maxlength="16"
+              placeholder="•••• •••• •••• ••••"
+              aria-describedby="nik-help nik-error"
+              required
+            />
+            <button
+              type="button"
+              class="icon-button reveal-button"
+              id="toggle-nik-visibility"
+              aria-label="Tampilkan NIK"
+              aria-pressed="false"
+            >
+              <i class="fa-regular fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <p id="nik-help" class="field-help">
+            <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+            Diproses lokal. Jangan gunakan NIK asli saat demonstrasi publik.
+          </p>
+          <p id="nik-error" class="field-error" role="alert" hidden></p>
+
+          <button type="submit" id="generate-proof-btn" class="button button-primary button-full">
+            <span>Generate Proof</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <div class="proof-progress" id="proof-progress" hidden>
+          <div class="progress-heading">
+            <span id="proof-progress-label">Menginisialisasi simulasi...</span>
+            <span id="proof-progress-percent">0%</span>
+          </div>
+          <div class="progress-track">
+            <div id="proof-progress-bar" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <section class="terminal-panel" aria-labelledby="terminal-title">
+          <div class="terminal-header">
+            <span class="terminal-lights" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span id="terminal-title">LOCAL PROOF TERMINAL</span>
+            <span class="terminal-live">SIM</span>
+          </div>
+          <div id="proof-terminal" class="terminal-body" role="log" aria-live="polite" aria-relevant="additions">
+            <p class="terminal-line terminal-muted">
+              <span class="terminal-prompt">›</span> NUSA-AKSI cryptographic demo initialized
+            </p>
+            <p class="terminal-line terminal-muted">
+              <span class="terminal-prompt">›</span> No identity data transmitted
+            </p>
+            <p class="terminal-line terminal-muted">
+              <span class="terminal-prompt">›</span> Awaiting local verification...
+            </p>
+          </div>
+        </section>
+
+        <div id="proof-result" class="proof-result" hidden>
+          <div class="proof-result-icon">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+          </div>
+          <div class="proof-result-copy">
+            <strong>Demo proof generated</strong>
+            <code id="proof-hash">Belum tersedia</code>
+            <small>Hash simulasi — bukan bukti zk-SNARK tervalidasi.</small>
+          </div>
+        </div>
+
+        <button type="button" id="enter-dashboard-btn" class="button button-success button-full" hidden>
+          <span>Masuk ke Bale Digital</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </button>
+
+        <div class="privacy-disclaimer">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <p>
+            Hash bukan jaminan anonimitas. Proses ini hanya demonstrasi lokal;
+            identitas dan laporan belum diverifikasi oleh layanan nyata.
+          </p>
+        </div>
+      </section>
+    </section>
+
+    <footer class="auth-footer">
+      <span>© 2026 NUSA-AKSI · PROTOTIPE CIVIC-TECH</span>
+      <span>PRIVASI · MARTABAT · AKSI KOLEKTIF</span>
+    </footer>
+  </main>
+
+  <!-- =========================================================
+       VIEW 2 — MAIN APPLICATION SHELL
+       ========================================================= -->
+  <div id="app-view" class="app-layout" hidden>
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <a class="brand-lockup" href="#dashboard" aria-label="Kembali ke dashboard">
+          <span class="brand-mark" aria-hidden="true">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+          <span class="brand-wordmark">
+            <strong>NUSA<span>-AKSI</span></strong>
+            <small>BALE DIGITAL</small>
+          </span>
+        </a>
+
+        <button id="close-sidebar-btn" class="icon-button sidebar-close" type="button" aria-label="Tutup navigasi">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-community">
+        <div class="community-avatar" aria-hidden="true">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+        <div>
+          <strong>Ruang Warga</strong>
+          <span>NTT · Mode prototipe</span>
+        </div>
+        <span class="live-dot" aria-label="Aplikasi aktif"></span>
+      </div>
+
+      <div class="sidebar-section-label">RUANG PARTISIPASI</div>
+
+      <nav class="sidebar-nav" aria-label="Navigasi utama">
+        <button type="button" class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-house" aria-hidden="true"></i>
+          <span>Beranda Bale</span>
+          <span class="nav-shortcut">01</span>
+        </button>
+
+        <button type="button" class="nav-item" data-view="report">
+          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+          <span>Buat Laporan</span>
+          <span class="nav-shortcut">02</span>
+        </button>
+
+        <button type="button" class="nav-item" data-view="outbox">
+          <i class="fa-solid fa-box-archive" aria-hidden="true"></i>
+          <span>Outbox Lokal</span>
+          <span id="outbox-nav-count" class="nav-count">0</span>
+        </button>
+
+        <button type="button" class="nav-item" data-view="feed">
+          <i class="fa-solid fa-earth-asia" aria-hidden="true"></i>
+          <span>Suara Publik</span>
+        </button>
+
+        <button type="button" class="nav-item" data-view="credits">
+          <i class="fa-solid fa-award" aria-hidden="true"></i>
+          <span>Kredit Aksi</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section-label">SISTEM & PRIVASI</div>
+
+      <div class="sidebar-mini-card">
+        <div class="mini-card-icon">
+          <i class="fa-solid fa-database" aria-hidden="true"></i>
+        </div>
+        <div class="mini-card-content">
+          <strong>Penyimpanan lokal</strong>
+          <span id="storage-status">Memeriksa IndexedDB...</span>
+        </div>
+        <span id="storage-indicator" class="status-dot status-dot-amber"></span>
+      </div>
+
+      <div class="sidebar-mini-card">
+        <div class="mini-card-icon">
+          <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
+        </div>
+        <div class="mini-card-content">
+          <strong>Identity token</strong>
+          <span id="sidebar-proof-short">Belum tersedia</span>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="ikat-mini" aria-hidden="true"></div>
+        <p>
+          Suara yang terawat<br />
+          <strong>menumbuhkan perubahan.</strong>
+        </p>
+        <button type="button" id="leave-session-btn" class="text-button">
+          <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+          Akhiri sesi lokal
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button type="button" id="open-sidebar-btn" class="icon-button mobile-menu-button" aria-label="Buka navigasi">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="breadcrumb">
+            <span>RUANG WARGA</span>
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            <strong id="current-page-label">Beranda Bale</strong>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="network-pill" id="network-pill">
+            <span id="network-dot" class="status-dot status-dot-green"></span>
+            <span id="network-label">ONLINE</span>
+            <span class="network-mode-label">SIM</span>
+          </div>
+          <button
+            type="button"
+            id="network-toggle"
+            class="button button-network"
+            aria-label="Ubah simulasi jaringan"
+            aria-pressed="false"
+          >
+            <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+            <span>Simulasikan Offline</span>
+          </button>
+
+          <div class="topbar-user">
+            <div class="user-avatar"><i class="fa-solid fa-user-astronaut" aria-hidden="true"></i></div>
+            <div class="topbar-user-copy">
+              <strong>Partisipan Lokal</strong>
+              <small id="topbar-proof-label">Proof belum dibuat</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" class="workspace">
+        <!-- VIEW: DASHBOARD -->
+        <section id="view-dashboard" class="view-panel active" data-page-title="Beranda Bale">
+          <div class="page-heading dashboard-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                <span>BALE DIGITAL · RUANG KOLABORASI</span>
+              </div>
+              <h1>Suara Anda, <span class="text-gradient">daya bersama.</span></h1>
+              <p>Ruang aman untuk merumuskan persoalan dan mendorong perubahan berbasis bukti.</p>
+            </div>
+            <button type="button" class="button button-primary" data-goto="report">
+              <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              <span>Mulai Laporan</span>
+            </button>
+          </div>
+
+          <div class="offline-banner" id="offline-banner" hidden>
+            <div class="offline-banner-icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div>
+            <div>
+              <strong>Jaringan terputus. Partisipasi tetap berjalan.</strong>
+              <p>Laporan baru akan disimpan di perangkat dan menunggu sinkronisasi simulasi.</p>
+            </div>
+            <span class="offline-banner-tag">LOCAL-FIRST</span>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-card-top">
+                <span class="stat-icon icon-red"><i class="fa-solid fa-file-pen" aria-hidden="true"></i></span>
+                <span class="stat-trend">LOKAL</span>
+              </div>
+              <p class="stat-label">Laporan tersusun</p>
+              <div class="stat-value" id="stat-total-reports">0</div>
+              <p class="stat-foot">Tercatat pada perangkat ini</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card-top">
+                <span class="stat-icon icon-blue"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></span>
+                <span class="stat-trend">ANTREAN</span>
+              </div>
+              <p class="stat-label">Menunggu sinkronisasi</p>
+              <div class="stat-value" id="stat-pending-reports">0</div>
+              <p class="stat-foot">Belum terkirim ke layanan nyata</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card-top">
+                <span class="stat-icon icon-gold"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
+                <span class="stat-trend">AKSI</span>
+              </div>
+              <p class="stat-label">Kredit konstruktif</p>
+              <div class="stat-value"><span id="stat-credit-points">0</span><small> XP</small></div>
+              <p class="stat-foot">Diperoleh dari laporan dalam simulasi</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card-top">
+                <span class="stat-icon icon-green"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></span>
+                <span class="stat-trend">PRIVASI</span>
+              </div>
+              <p class="stat-label">Identitas lokal</p>
+              <div class="stat-value stat-value-word">AKTIF</div>
+              <p class="stat-foot">Bukan verifikasi identitas resmi</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="content-panel welcome-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="panel-kicker">DARI KELUHAN KE PERUBAHAN</span>
+                  <h2>Bagaimana kita bergerak?</h2>
+                </div>
+                <span class="panel-symbol"><i class="fa-solid fa-compass" aria-hidden="true"></i></span>
+              </div>
+
+              <div class="journey-list">
+                <div class="journey-item">
+                  <span class="journey-number">01</span>
+                  <div>
+                    <strong>Amati dengan jernih</strong>
+                    <p>Catat apa yang terjadi, di mana, kapan, dan siapa yang terdampak.</p>
+                  </div>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div class="journey-item">
+                  <span class="journey-number">02</span>
+                  <div>
+                    <strong>Simpan bukti secara lokal</strong>
+                    <p>Tulis laporan tanpa harus menunggu koneksi internet.</p>
+                  </div>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div class="journey-item">
+                  <span class="journey-number">03</span>
+                  <div>
+                    <strong>Rumuskan usulan konkret</strong>
+                    <p>Prioritaskan fakta, dampak, dan solusi yang dapat dilakukan.</p>
+                  </div>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <button type="button" class="button button-outline" data-goto="report">
+                Susun laporan pertama
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </button>
+            </section>
+
+            <section class="content-panel credit-preview-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="panel-kicker">APRESIASI KONTRIBUSI</span>
+                  <h2>Kredit Aksi</h2>
+                </div>
+                <span class="panel-symbol gold"><i class="fa-solid fa-medal" aria-hidden="true"></i></span>
+              </div>
+
+              <div class="badge-hero">
+                <div class="badge-emblem">
+                  <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                  <span class="badge-spark spark-one"></span>
+                  <span class="badge-spark spark-two"></span>
+                </div>
+                <div>
+                  <span class="badge-overline">TINGKAT SAAT INI</span>
+                  <h3 id="dashboard-badge-name">Saksi Warga</h3>
+                  <p id="dashboard-badge-description">Awal dari partisipasi yang bermakna.</p>
+                </div>
+              </div>
+
+              <div class="credit-progress-header">
+                <span>Progres tingkat selanjutnya</span>
+                <strong id="dashboard-credit-progress-label">0 / 100 XP</strong>
+              </div>
+              <div class="progress-track credit-track">
+                <div id="dashboard-credit-progress" class="progress-fill"></div>
+              </div>
+              <button type="button" class="text-link" data-goto="credits">
+                Lihat tingkatan dan riwayat <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+
+              <p class="ethical-note">
+                <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+                Kredit mengapresiasi partisipasi, bukan membuktikan kebenaran laporan.
+              </p>
+            </section>
+          </div>
+
+          <section class="content-panel recent-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">CATATAN PERANGKAT</span>
+                <h2>Laporan terbaru</h2>
+              </div>
+              <button type="button" class="text-link" data-goto="outbox">
+                Lihat semua <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div id="dashboard-recent-list" class="report-list"></div>
+          </section>
+
+          <section class="content-panel feed-preview-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">CONTOH KARTU KOMUNITAS</span>
+                <h2>Isu yang perlu diperhatikan</h2>
+              </div>
+              <button type="button" class="text-link" data-goto="feed">
+                Buka ruang publik <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div id="dashboard-feed-preview" class="community-grid"></div>
+            <p class="demo-note">
+              <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+              Kartu awal adalah data demonstrasi fiktif, bukan laporan warga terverifikasi.
+            </p>
+          </section>
+        </section>
+
+        <!-- VIEW: REPORT WIZARD -->
+        <section id="view-report" class="view-panel" data-page-title="Buat Laporan" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                <span>WIZARD PARTISIPASI · 03 LANGKAH</span>
+              </div>
+              <h1>Ubah pengamatan <span class="text-gradient">menjadi aksi.</span></h1>
+              <p>Mulailah dari fakta. Ceritakan dampaknya. Akhiri dengan usulan yang masuk akal.</p>
+            </div>
+          </div>
+
+          <div class="wizard-layout">
+            <section class="content-panel wizard-panel">
+              <div class="wizard-steps" aria-label="Tahapan laporan">
+                <div class="wizard-step active" data-step-indicator="1">
+                  <span class="wizard-step-number">01</span>
+                  <span><strong>Konteks</strong><small>5W1H</small></span>
+                </div>
+                <span class="wizard-connector"></span>
+                <div class="wizard-step" data-step-indicator="2">
+                  <span class="wizard-step-number">02</span>
+                  <span><strong>Bukti</strong><small>Media</small></span>
+                </div>
+                <span class="wizard-connector"></span>
+                <div class="wizard-step" data-step-indicator="3">
+                  <span class="wizard-step-number">03</span>
+                  <span><strong>Narasi</strong><small>Solusi</small></span>
+                </div>
+              </div>
+
+              <form id="report-form" novalidate>
+                <!-- WIZARD STEP 1 -->
+                <div id="wizard-step-1" class="wizard-step-content">
+                  <div class="wizard-section-heading">
+                    <span class="section-index">01 / KONTEKS</span>
+                    <h2>Fakta sebelum opini.</h2>
+                    <p>Lengkapi unsur 5W1H agar laporan mudah dipahami dan ditindaklanjuti.</p>
+                  </div>
+
+                  <div class="form-grid">
+                    <div class="form-field form-field-full">
+                      <label for="report-title">Judul laporan <span class="required-mark">*</span></label>
+                      <input id="report-title" name="title" type="text" maxlength="120" placeholder="Contoh: Akses air bersih terganggu di wilayah kami" required />
+                      <div class="field-meta"><span>Gunakan judul yang spesifik.</span><span id="title-count">0 / 120</span></div>
+                    </div>
+
+                    <div class="form-field form-field-full">
+                      <label for="report-category">Kategori persoalan <span class="required-mark">*</span></label>
+                      <select id="report-category" name="category" required>
+                        <option value="">Pilih kategori persoalan</option>
+                        <option value="Air dan Sanitasi">Air dan sanitasi</option>
+                        <option value="Pendidikan">Pendidikan</option>
+                        <option value="Kesehatan">Kesehatan</option>
+                        <option value="Infrastruktur">Infrastruktur dan transportasi</option>
+                        <option value="Lingkungan">Lingkungan hidup</option>
+                        <option value="Layanan Publik">Layanan publik</option>
+                        <option value="Ketenagakerjaan">Ketenagakerjaan</option>
+                        <option value="Akses Digital">Akses digital</option>
+                        <option value="Lainnya">Lainnya</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field">
+                      <label for="report-who">WHO — siapa terdampak? <span class="required-mark">*</span></label>
+                      <input id="report-who" name="who" type="text" maxlength="180" placeholder="Contoh: siswa dan keluarga sekitar" required />
+                    </div>
+
+                    <div class="form-field">
+                      <label for="report-when">WHEN — kapan terjadi? <span class="required-mark">*</span></label>
+                      <input id="report-when" name="when" type="date" required />
+                    </div>
+
+                    <div class="form-field form-field-full">
+                      <label for="report-what">WHAT — apa yang terjadi? <span class="required-mark">*</span></label>
+                      <textarea id="report-what" name="what" rows="3" maxlength="1000" placeholder="Jelaskan kejadian yang dapat diamati, bukan dugaan tentang niat seseorang." required></textarea>
+                    </div>
+
+                    <div class="form-field form-field-full">
+                      <label for="report-location-text">WHERE — nama lokasi <span class="required-mark">*</span></label>
+                      <input id="report-location-text" name="location" type="text" maxlength="180" placeholder="Contoh: sekitar fasilitas umum, Kabupaten ..." required />
+                    </div>
+
+                    <div class="form-field form-field-full">
+                      <div class="location-map-header">
+                        <label for="report-map">Titik lokasi simulasi</label>
+                        <span class="map-sim-label"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> PETA DEMO</span>
+                      </div>
+
+                      <button type="button" id="report-map" class="map-simulation" aria-label="Pilih titik pada peta simulasi">
+                        <span class="map-contour contour-a"></span>
+                        <span class="map-contour contour-b"></span>
+                        <span class="map-road road-a"></span>
+                        <span class="map-road road-b"></span>
+                        <span class="map-water"></span>
+                        <span class="map-pin" id="map-pin"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+                        <span class="map-hint"><i class="fa-solid fa-crosshairs" aria-hidden="true"></i> Klik peta untuk memilih titik</span>
+                        <span class="map-coordinates" id="map-coordinates">Belum ada titik dipilih</span>
+                      </button>
+                      <p class="field-help">
+                        Peta ini hanya visualisasi. Koordinat yang dihasilkan adalah titik simulasi NTT, bukan GPS atau peta aktual.
+                      </p>
+                    </div>
+
+                    <div class="form-field form-field-full">
+                      <label for="report-why">WHY — mengapa ini penting? <span class="required-mark">*</span></label>
+                      <textarea id="report-why" name="why" rows="3" maxlength="700" placeholder="Apa dampaknya terhadap kehidupan warga? Mengapa perlu ditangani?" required></textarea>
+                    </div>
+
+                    <div class="form-field form-field-full">
+                      <label for="report-how">HOW — bagaimana situasinya bisa diperbaiki? <span class="required-mark">*</span></label>
+                      <textarea id="report-how" name="how" rows="3" maxlength="700" placeholder="Usulkan langkah realistis, pihak terkait, atau solusi awal." required></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-validation-message" id="step1-error" role="alert" hidden></div>
+
+                  <div class="wizard-actions wizard-actions-end">
+                    <button type="button" class="button button-primary" data-next="2">
+                      Lanjut ke bukti
+                      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- WIZARD STEP 2 -->
+                <div id="wizard-step-2" class="wizard-step-content" hidden>
+                  <div class="wizard-section-heading">
+                    <span class="section-index">02 / BUKTI</span>
+                    <h2>Pengamatan pendukung.</h2>
+                    <p>Tambahkan foto jika tersedia. Unggahan bersifat opsional dan diproses lokal pada perangkat ini.</p>
+                  </div>
+
+                  <div class="upload-dropzone" id="upload-dropzone">
+                    <input id="report-photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+                    <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i></div>
+                    <strong>Pilih foto pendukung</strong>
+                    <p>JPG, PNG, atau WEBP · Maksimum 12 MB sebelum kompresi demo</p>
+                    <button type="button" id="choose-photo-btn" class="button button-outline button-small">
+                      <i class="fa-regular fa-image" aria-hidden="true"></i>
+                      Pilih dari perangkat
+                    </button>
+                    <span class="upload-or">ATAU LETAKKAN FILE DI SINI</span>
+                  </div>
+
+                  <div id="photo-preview-panel" class="photo-preview-panel" hidden>
+                    <img id="photo-preview" alt="Pratinjau foto yang dipilih" />
+                    <div class="photo-preview-info">
+                      <strong id="photo-file-name">foto.jpg</strong>
+                      <span id="photo-file-meta">Menunggu proses</span>
+                      <div class="compression-progress" id="compression-progress" hidden>
+                        <span id="compression-progress-label">Mengompresi gambar...</span>
+                        <div class="progress-track"><div id="compression-progress-bar" class="progress-fill"></div></div>
+                      </div>
+                      <div id="compression-result" class="compression-result" hidden></div>
+                    </div>
+                    <button type="button" id="remove-photo-btn" class="icon-button" aria-label="Hapus foto">
+                      <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </div>
+
+                  <div class="evidence-guidance">
+                    <div class="guidance-icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
+                    <div>
+                      <strong>Periksa privasi sebelum mengunggah</strong>
+                      <p>Foto dapat memuat wajah, dokumen, koordinat, atau metadata. Hindari mengunggah materi sensitif yang dapat membahayakan Anda maupun orang lain.</p>
+                    </div>
+                  </div>
+
+                  <div class="form-validation-message" id="step2-error" role="alert" hidden></div>
+
+                  <div class="wizard-actions">
+                    <button type="button" class="button button-ghost" data-back="1">
+                      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                      Kembali
+                    </button>
+                    <button type="button" class="button button-primary" data-next="3">
+                      Susun narasi
+                      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- WIZARD STEP 3 -->
+                <div id="wizard-step-3" class="wizard-step-content" hidden>
+                  <div class="wizard-section-heading">
+                    <span class="section-index">03 / NARASI</span>
+                    <h2>Suara yang membangun.</h2>
+                    <p>Rumuskan laporan yang faktual, tidak menyerang individu, dan menyampaikan usulan yang dapat diuji.</p>
+                  </div>
+
+                  <div class="narrative-framework">
+                    <div><span>01</span><strong>Fakta</strong><small>Apa yang terlihat?</small></div>
+                    <div><span>02</span><strong>Dampak</strong><small>Siapa yang terdampak?</small></div>
+                    <div><span>03</span><strong>Usulan</strong><small>Apa langkah berikutnya?</small></div>
+                  </div>
+
+                  <div class="form-field form-field-full narrative-field">
+                    <div class="textarea-label-row">
+                      <label for="report-narrative">Narasi lengkap <span class="required-mark">*</span></label>
+                      <span class="scanner-indicator" id="scanner-indicator">
+                        <span class="status-dot status-dot-green"></span>
+                        PEMERIKSAAN AKTIF
+                      </span>
+                    </div>
+
+                    <textarea
+                      id="report-narrative"
+                      name="narrative"
+                      class="narrative-textarea"
+                      rows="10"
+                      minlength="80"
+                      maxlength="4000"
+                      placeholder="Contoh: Pada beberapa hari terakhir, warga di sekitar [lokasi] mengalami [fakta yang diamati]. Situasi tersebut berdampak pada [dampak konkret]. Kami mengusulkan [langkah yang realistis] dan berharap pihak terkait dapat memberikan tanggapan..."
+                      aria-describedby="narrative-help narrative-count nudge-alert"
+                      required
+                    ></textarea>
+
+                    <div class="field-meta">
+                      <span id="narrative-help">Minimal 80 karakter. Pemindai bahasa sederhana berjalan di perangkat ini.</span>
+                      <span id="narrative-count">0 / 4000</span>
+                    </div>
+                  </div>
+
+                  <div id="nudge-alert" class="nudge-alert" role="status" aria-live="polite" hidden>
+                    <span class="nudge-alert-icon"><i class="fa-solid fa-wind" aria-hidden="true"></i></span>
+                    <div class="nudge-alert-copy">
+                      <strong>Jeda refleksi</strong>
+                      <p id="nudge-alert-message">Emosi terdeteksi. Tarik napas. Sampaikan keluhan Anda secara rasional untuk perubahan nyata.</p>
+                    </div>
+                    <span id="nudge-countdown" class="nudge-countdown" aria-live="off">10s</span>
+                  </div>
+
+                  <div class="rationality-checklist">
+                    <span class="checklist-title">SEBELUM MENYIMPAN</span>
+                    <label><input type="checkbox" id="check-factual" /> Saya membedakan fakta dari dugaan.</label>
+                    <label><input type="checkbox" id="check-respectful" /> Saya tidak menggunakan serangan pribadi atau ujaran merendahkan.</label>
+                    <label><input type="checkbox" id="check-solution" /> Saya mencantumkan dampak dan/atau usulan perbaikan.</label>
+                  </div>
+
+                  <div id="step3-error" class="form-validation-message" role="alert" hidden></div>
+
+                  <div class="report-review-note">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    <p>
+                      Pemindai hanya memeriksa pola kata dan kapitalisasi; ia tidak memahami konteks, tidak menentukan kebenaran, dan tidak menggantikan moderasi manusia.
+                    </p>
+                  </div>
+
+                  <div class="wizard-actions">
+                    <button type="button" class="button button-ghost" data-back="2">
+                      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                      Kembali
+                    </button>
+                    <button type="submit" id="submit-report-btn" class="button button-primary" disabled>
+                      <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+                      <span>Simpan laporan</span>
+                    </button>
+                  </div>
+                  <p id="submit-button-help" class="submit-button-help">
+                    Lengkapi narasi, checklist, dan jeda refleksi untuk mengaktifkan tombol.
+                  </p>
+                </div>
+              </form>
+            </section>
+
+            <aside class="wizard-aside">
+              <section class="content-panel aside-tip-panel">
+                <span class="panel-kicker">PANDUAN BERSAMA</span>
+                <div class="tip-illustration"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+                <h3>Keluhan yang kuat berbicara melalui bukti.</h3>
+                <p>Tujuan jeda bukan membungkam kritik. Tujuannya memberi ruang agar kritik tetap tajam, jelas, dan mengurangi risiko serangan personal.</p>
+              </section>
+
+              <section class="content-panel aside-check-panel">
+                <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> Ringkasan laporan</h3>
+                <div class="summary-line"><span>Judul</span><strong id="summary-title">Belum diisi</strong></div>
+                <div class="summary-line"><span>Kategori</span><strong id="summary-category">Belum dipilih</strong></div>
+                <div class="summary-line"><span>Lokasi</span><strong id="summary-location">Belum diisi</strong></div>
+                <div class="summary-line"><span>Bukti</span><strong id="summary-photo">Belum ada foto</strong></div>
+                <div class="summary-line"><span>Status</span><strong id="summary-status" class="summary-status-local">Tersimpan lokal setelah dikirim</strong></div>
+              </section>
+
+              <section class="privacy-side-note">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <div>
+                  <strong>Data di perangkat ini</strong>
+                  <p>Antrean disimpan melalui IndexedDB bila tersedia. Sinkronisasi dalam demo tidak mengirim data ke server.</p>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <!-- VIEW: OUTBOX -->
+        <section id="view-outbox" class="view-panel" data-page-title="Outbox Lokal" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span><span>KETAHANAN JARINGAN · LOCAL-FIRST</span></div>
+              <h1>Outbox <span class="text-gradient">lokal.</span></h1>
+              <p>Laporan yang disimpan di perangkat dan riwayat simulasi sinkronisasi.</p>
+            </div>
+            <button type="button" id="manual-sync-btn" class="button button-primary">
+              <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+              Sinkronkan sekarang
+            </button>
+          </div>
+
+          <div class="outbox-explainer">
+            <div class="outbox-explainer-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></div>
+            <div>
+              <strong>Sinyal bukan syarat untuk mulai bersuara.</strong>
+              <p>Entri berstatus pending disimpan di perangkat. Status terkirim di halaman ini hanya menandakan simulasi lokal selesai — bukan bahwa instansi publik telah menerima laporan.</p>
+            </div>
+          </div>
+
+          <div class="list-section-heading">
+            <div>
+              <span class="panel-kicker">QUEUE / 01</span>
+              <h2>Menunggu sinkronisasi <span id="outbox-count-heading" class="heading-count">0</span></h2>
+            </div>
+            <span class="queue-status"><span class="status-dot status-dot-amber"></span> PENDING</span>
+          </div>
+          <div id="outbox-list" class="report-list report-list-large"></div>
+
+          <div class="list-section-heading sent-heading">
+            <div>
+              <span class="panel-kicker">SIMULASI / 02</span>
+              <h2>Riwayat simulasi terkirim <span id="sent-count-heading" class="heading-count">0</span></h2>
+            </div>
+            <span class="queue-status"><span class="status-dot status-dot-green"></span> DEMO ONLY</span>
+          </div>
+          <div id="sent-reports-list" class="report-list report-list-large"></div>
+        </section>
+
+        <!-- VIEW: PUBLIC FEED -->
+        <section id="view-feed" class="view-panel" data-page-title="Suara Publik" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span><span>RUANG DIALOG · PARTISIPASI PUBLIK</span></div>
+              <h1>Suara yang <span class="text-gradient">saling menguatkan.</span></h1>
+              <p>Jelajahi contoh isu, pertukaran gagasan, dan usulan perbaikan berbasis fakta.</p>
+            </div>
+            <button type="button" class="button button-primary" data-goto="report">
+              <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              Tulis laporan
+            </button>
+          </div>
+
+          <div class="feed-notice">
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <div>
+              <strong>Feed lokal demonstrasi</strong>
+              <p>Data contoh dan laporan yang telah melewati simulasi penyimpanan ditampilkan hanya pada browser ini. Tidak ada pengiriman ke platform publik.</p>
+            </div>
+          </div>
+
+          <div class="feed-toolbar">
+            <div class="feed-search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input id="feed-search-input" type="search" placeholder="Cari isu atau lokasi..." aria-label="Cari laporan publik" />
+            </div>
+            <select id="feed-category-filter" aria-label="Filter kategori feed">
+              <option value="">Semua kategori</option>
+              <option value="Air dan Sanitasi">Air dan sanitasi</option>
+              <option value="Pendidikan">Pendidikan</option>
+              <option value="Kesehatan">Kesehatan</option>
+              <option value="Infrastruktur">Infrastruktur</option>
+              <option value="Lingkungan">Lingkungan</option>
+              <option value="Layanan Publik">Layanan publik</option>
+              <option value="Ketenagakerjaan">Ketenagakerjaan</option>
+              <option value="Akses Digital">Akses digital</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+
+          <div id="feed-list" class="community-grid feed-grid"></div>
+          <div id="feed-empty-state" class="empty-state" hidden>
+            <div class="empty-state-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+            <h3>Tidak ada isu yang cocok.</h3>
+            <p>Coba kata kunci atau kategori lain.</p>
+          </div>
+        </section>
+
+        <!-- VIEW: CIVIC CREDITS -->
+        <section id="view-credits" class="view-panel" data-page-title="Kredit Aksi" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span><span>APRESIASI PARTISIPASI SIPIL</span></div>
+              <h1>Setiap langkah <span class="text-gradient">punya arti.</span></h1>
+              <p>Kredit simulasi untuk mendorong kebiasaan pelaporan yang reflektif dan konstruktif.</p>
+            </div>
+          </div>
+
+          <section class="content-panel credits-hero">
+            <div class="credits-hero-copy">
+              <span class="panel-kicker">PERJALANAN PARTISIPASI ANDA</span>
+              <h2 id="credits-badge-name">Saksi Warga</h2>
+              <p id="credits-badge-description">Mulai dengan mengamati, mencatat, dan merumuskan persoalan.</p>
+              <div class="credits-total"><strong id="credits-total-value">0</strong><span>XP</span></div>
+              <div class="credit-progress-header">
+                <span id="credits-next-level-label">Menuju Penggerak Bale</span>
+                <strong id="credits-progress-label">0 / 100 XP</strong>
+              </div>
+              <div class="progress-track credit-track">
+                <div id="credits-progress-bar" class="progress-fill"></div>
+              </div>
+            </div>
+            <div class="credits-emblem" aria-hidden="true">
+              <div class="emblem-ring"></div>
+              <div class="emblem-center"><i class="fa-solid fa-seedling"></i></div>
+            </div>
+          </section>
+
+          <div class="list-section-heading">
+            <div>
+              <span class="panel-kicker">TAHAP PARTISIPASI</span>
+              <h2>Perkembangan kontribusi</h2>
+            </div>
+          </div>
+
+          <div class="rank-grid">
+            <article class="rank-card" data-rank="1">
+              <div class="rank-number">01</div>
+              <div class="rank-emblem"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
+              <h3>Saksi Warga</h3>
+              <p>Memulai dengan mencatat persoalan nyata.</p>
+              <span>0 XP</span>
+            </article>
+            <article class="rank-card" data-rank="2">
+              <div class="rank-number">02</div>
+              <div class="rank-emblem"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+              <h3>Penggerak Bale</h3>
+              <p>Aktif menyusun laporan konstruktif.</p>
+              <span>100 XP</span>
+            </article>
+            <article class="rank-card" data-rank="3">
+              <div class="rank-number">03</div>
+              <div class="rank-emblem"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div>
+              <h3>Pahlawan Akar Rumput</h3>
+              <p>Menumbuhkan budaya partisipasi bersama.</p>
+              <span>300 XP</span>
+            </article>
+            <article class="rank-card" data-rank="4">
+              <div class="rank-number">04</div>
+              <div class="rank-emblem"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
+              <h3>Penjaga Kepentingan Publik</h3>
+              <p>Membangun kebiasaan advokasi berbasis bukti.</p>
+              <span>700 XP</span>
+            </article>
+          </div>
+
+          <section class="content-panel credit-history-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">JEJAK KONTRIBUSI</span>
+                <h2>Riwayat kredit lokal</h2>
+              </div>
+              <span class="history-local-label"><i class="fa-solid fa-database" aria-hidden="true"></i> LOKAL</span>
+            </div>
+            <div id="credit-history-list" class="credit-history-list"></div>
+          </section>
+
+          <div class="ethics-banner">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+            <div>
+              <strong>Jumlah poin bukan ukuran kebenaran atau dampak nyata.</strong>
+              <p>Jangan membuat laporan berulang, memanipulasi bukti, atau mengorbankan keamanan demi poin. Sistem penghargaan sesungguhnya harus memiliki mekanisme anti-penyalahgunaan dan akses yang adil.</p>
+            </div>
+          </div>
+        </section>
+
+        <footer class="workspace-footer">
+          <span>NUSA-AKSI <i class="fa-solid fa-sun" aria-hidden="true"></i> PROTOTIPE CIVIC-TECH</span>
+          <span>DATA DEMONSTRASI · BELUM TERHUBUNG KE LAYANAN PUBLIK</span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODALS, TOASTS & ACCESSIBILITY HELPERS
+       ========================================================= -->
+  <div id="emotion-modal" class="modal-backdrop" role="presentation" hidden>
+    <section class="modal-card emotion-modal-card" role="dialog" aria-modal="true" aria-labelledby="emotion-modal-title" aria-describedby="emotion-modal-description">
+      <div class="modal-symbol"><i class="fa-solid fa-wind" aria-hidden="true"></i></div>
+      <span class="panel-kicker">JEDA REFLEKSI · RUANG BERSAMA</span>
+      <h2 id="emotion-modal-title">Berhenti sejenak.</h2>
+      <p id="emotion-modal-description">
+        Emosi terdeteksi. Tarik napas. Sampaikan keluhan Anda secara rasional untuk perubahan nyata.
+      </p>
+      <div class="breathing-visual" aria-hidden="true">
+        <span></span>
+        <p>Tarik napas · Hembuskan perlahan</p>
+      </div>
+      <p class="modal-countdown-copy">Jeda refleksi: <strong id="modal-countdown">10</strong> detik</p>
+      <button type="button" id="close-emotion-modal" class="button button-primary button-full">
+        Saya akan meninjau narasi
+      </button>
+      <small>Fitur ini berbasis pola teks sederhana dan dapat salah membaca konteks.</small>
+    </section>
+  </div>
+
+  <div id="toast-region" class="toast-region" role="region" aria-label="Notifikasi" aria-live="polite" aria-relevant="additions"></div>
+
+  <div id="sync-overlay" class="sync-overlay" hidden>
+    <div class="sync-card">
+      <div class="sync-animation"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></div>
+      <span class="panel-kicker">SIMULASI BACKGROUND SYNC</span>
+      <h2 id="sync-overlay-title">Menyiapkan antrean...</h2>
+      <p id="sync-overlay-message">Memproses laporan lokal di dalam browser.</p>
+      <div class="progress-track"><div id="sync-progress-bar" class="progress-fill"></div></div>
+      <span id="sync-progress-label">0%</span>
+      <small>Tidak ada server tujuan dalam prototipe ini.</small>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">
+      NUSA-AKSI memerlukan JavaScript untuk menjalankan simulasi penyimpanan lokal dan alur interaktif.
+    </div>
+  </noscript>
+</body>
+</html>
